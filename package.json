@@ -1,10 +1,36 @@
 {
   "name": "riff-team-api",
   "version": "0.1.0-dev.0",
+  "private": true,
   "description": "Provides a REST (http) and websocket interface for Riff teams",
-  "main": "dist/index.js",
-  "repository": "https://github.com/mlippert/riff-team-api.git",
   "author": "Mike Lippert <mike@rifflearning.com>",
+  "contributors": [],
   "license": "MIT",
-  "private": true
+  "readme": "README.md",
+  "repository": "https://github.com/mlippert/riff-team-api.git",
+  "homepage": "https://github.com/mlippert/riff-team-api#readme",
+  "bugs": "https://github.com/mlippert/riff-team-api/issues",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node dist/main.js",
+    "build": "tsc",
+    "lint": "tslint --project ."
+  },
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "dependencies": {
+    "@feathersjs/feathers": "^3.1.4",
+    "bunyan": "^1.8.12",
+    "config": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.4",
+    "@types/config": "^0.0.34",
+    "@types/feathersjs__feathers": "^3.0.3",
+    "@types/node": "^9.6.10",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.1.0",
+    "typescript": "^2.8.3"
+  }
 }

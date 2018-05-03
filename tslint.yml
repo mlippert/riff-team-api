@@ -1,0 +1,30 @@
+---
+defaultSeverity: error
+extends:
+    - tslint:recommended
+    - tslint-eslint-rules
+jsRules: {}
+rules:
+    jsdoc-format: false
+    one-line: false
+    quotemark:
+        - single
+        - avoid-escape
+    no-consecutive-blank-lines:
+        severity: warning
+        options:
+            - 2
+    no-console:
+        severity: warning
+    object-literal-sort-keys: false
+    trailing-comma:
+        severity: default
+        options:
+            multiline: ignore
+            singleline: never
+    brace-style:
+        - true
+        - allman
+        -
+            allowSingleLine: true
+rulesDirectory: []

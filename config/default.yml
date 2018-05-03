@@ -1,0 +1,16 @@
+server:
+    port: 8000
+
+log:
+    name: RiffTeam
+    level: trace
+    streams:
+        -
+            output: file
+            level: info
+            logDir: "./logs"
+            type: rotating-file
+            period: 1d
+            count: 10
+        -
+            output: stderr
