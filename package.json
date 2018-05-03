@@ -1,0 +1,10 @@
+{
+  "name": "riff-team-api",
+  "version": "0.1.0-dev.0",
+  "description": "Provides a REST (http) and websocket interface for Riff teams",
+  "main": "dist/index.js",
+  "repository": "https://github.com/mlippert/riff-team-api.git",
+  "author": "Mike Lippert <mike@rifflearning.com>",
+  "license": "MIT",
+  "private": true
+}
