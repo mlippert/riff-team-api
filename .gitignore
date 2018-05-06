@@ -39,6 +39,7 @@ node_modules/
 
 # Logs and databases #
 ######################
+logs/
 *.log
 *.log.xml
 *.sql
