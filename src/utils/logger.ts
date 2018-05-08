@@ -2,9 +2,18 @@
  * logger.ts                                                                    *
  * *************************************************************************/ /**
  *
- * @fileoverview [summary of file contents]
+ * @fileoverview Define and configure the logger to be used by riff-team-api
  *
- * [More detail about the file's contents]
+ * The riff-team-api logger is based on [Bunyan]{@link https://github.com/trentm/node-bunyan/#readme}.
+ * It outputs json, which can be pretty printed at the console by piping it
+ * to the bunyan CLI. If the log output is going to stderr (the current default
+ * configuration) and using the project installation of bunyan use the
+ * commandline:
+ *     npm start 2>&1 > /dev/null | ./node_modules/.bin/bunyan
+ *
+ * A json log should allow greater capabilities (such as easier search) in the
+ * future, with or w/o an ELK stack (Elasticsearch, Logstash, Kibana) or parts
+ * thereof. Also see what AWS has to [say]{@link https://aws.amazon.com/answers/logging/centralized-logging/}
  *
  * Created on       May 3, 2018
  * @author          Michael Jay Lippert
@@ -15,7 +24,7 @@
  * ******************************************************************************/
 
 import * as bunyan from 'bunyan';
-import * as config from 'config';
+import * as config from 'config'; // logger can't import ./config because it imports logger
 
 
 /* **************************************************************************
@@ -114,6 +123,15 @@ interface IConfigLog
     level?: bunyan.LogLevel;
 }
 
-// Singleton Logger instance for export
-export let loggerInstance = createLogger();
+// Singleton Logger instance
+let loggerInstance = createLogger();
+
+
+/* **************************************************************************** *
+ * Module exports                                                               *
+ * **************************************************************************** */
+export
+{
+    loggerInstance,
+};
 

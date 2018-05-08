@@ -71,9 +71,11 @@
 
 - [An Introduction to Mongoose for MongoDB and Node.js][mongoose-intro]
 - [MongoDB Docs][]
+- [TypeScript: Declaring Mongoose Schema + Model][typing mongoose]
 
 [mongoose-intro]: <https://code.tutsplus.com/articles/an-introduction-to-mongoose-for-mongodb-and-nodejs--cms-29527> "Mongoose Introduction"
 [MongoDB Docs]: <https://docs.mongodb.com/> "MongoDB Docs"
+[typing mongoose]:<http://brianflove.com/2016/10/04/typescript-declaring-mongoose-schema-model/> "Mongoose w/ Typescript"
 
 
 ### Bunyan (logging) ###

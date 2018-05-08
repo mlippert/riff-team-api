@@ -10,9 +10,9 @@
   "repository": "https://github.com/mlippert/riff-team-api.git",
   "homepage": "https://github.com/mlippert/riff-team-api#readme",
   "bugs": "https://github.com/mlippert/riff-team-api/issues",
-  "main": "dist/main.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/main.js",
+    "start": "node dist/server.js",
     "build": "tsc",
     "lint": "tslint --project ."
   },
@@ -22,12 +22,18 @@
   "dependencies": {
     "@feathersjs/feathers": "^3.1.4",
     "bunyan": "^1.8.12",
-    "config": "^1.30.0"
+    "config": "^1.30.0",
+    "feathers-mongoose": "^6.1.1",
+    "mongoose": "^5.0.17"
   },
   "devDependencies": {
     "@types/bunyan": "^1.8.4",
     "@types/config": "^0.0.34",
+    "@types/feathersjs__errors": "^3.2.1",
     "@types/feathersjs__feathers": "^3.0.3",
+    "@types/feathersjs__socket-commons": "^3.1.2",
+    "@types/mongodb": "^3.0.18",
+    "@types/mongoose": "^5.0.12",
     "@types/node": "^9.6.10",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.1.0",

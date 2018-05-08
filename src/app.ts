@@ -1,5 +1,5 @@
 /* ******************************************************************************
- * main.ts                                                                      *
+ * app.ts                                                                       *
  * *************************************************************************/ /**
  *
  * @fileoverview Entry point to start the riff-team-api server
@@ -16,10 +16,17 @@
 
 import feathers from "@feathersjs/feathers";
 
-import { loggerInstance as logger } from './logger';
+import { configureSettings } from './utils/config';
+
+import { configureMongoose } from './mongoose';
+import { configureServices } from './services';
 
 
 const app = feathers();
+
+app.configure(configureSettings);
+//app.configure(configureMongoose);
+//app.configure(configureServices);
 
 // Register a simple todo service that returns the name and some text
 app.use('todos',
@@ -42,9 +49,19 @@ async function getTodo(name: string)
     // Call the `get` method with a name
     const todo = await service.get(name);
 
+    const logger = app.get('logger');
+
     // Log the todo we got back
-    logger.info({ todo });
-    console.log(todo);
+    logger.info({ todo }, 'response from todos service.get');
 }
 
 getTodo('dishes');
+
+/* **************************************************************************** *
+ * Module exports                                                               *
+ * **************************************************************************** */
+export default app;
+export
+{
+    app,
+};

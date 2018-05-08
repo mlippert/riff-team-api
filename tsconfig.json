@@ -2,7 +2,8 @@
   "compilerOptions":
   {
     "target": "es2017",
-    "module": "commonjs",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "lib": [ "ES2015", "ES2016", "ES2017", "DOM", "DOM.Iterable", "ScriptHost" ],
     "outDir": "dist",
     "baseUrl": "./src",
