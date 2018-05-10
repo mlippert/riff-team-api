@@ -14,19 +14,68 @@
  *
  * ******************************************************************************/
 
-import feathers from "@feathersjs/feathers";
+import * as path from 'path';
+
+import feathers from '@feathersjs/feathers';
+import express from '@feathersjs/express';
+//import socketio from '@feathersjs/socketio';
+
+import * as favicon from 'serve-favicon';
+import * as compress from 'compression';
+import * as cors from 'cors';
+import * as helmet from 'helmet';
 
 import { configureSettings } from './utils/config';
-
+import { configureChannels } from './channels';
 import { configureMongoose } from './mongoose';
 import { configureServices } from './services';
+import { configureMiddleware } from './middleware';
+import { appHooks } from './app.hooks';
 
 
-const app = feathers();
 
+
+const app = express(feathers());
+
+// Load app configuration
 app.configure(configureSettings);
-//app.configure(configureMongoose);
-//app.configure(configureServices);
+
+const logger = app.get('logger');
+
+// Enable CORS, security, compression, favicon and body parsing
+app.use(cors());
+app.use(helmet());
+app.use(compress());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+
+// Host the public folder
+app.use('/', express.static(app.get('public')));
+
+// Set up Plugins and providers
+app.configure(express.rest());
+//app.configure(socketio());
+
+app.configure(configureMongoose);
+
+// Configure other middleware (see `middleware/index.js`)
+app.configure(configureMiddleware);
+
+// Set up our services (see `services/index.js`)
+app.configure(configureServices);
+
+// Set up event channels (see channels.js)
+app.configure(configureChannels);
+
+// Configure a middleware for 404s and the error handler
+app.use(express.notFound());
+app.use(express.errorHandler({ logger }));
+
+app.hooks(appHooks);
+
+
+////// test service to be deleted, currently used to test that building works
 
 // Register a simple todo service that returns the name and some text
 app.use('todos',
@@ -48,8 +97,6 @@ async function getTodo(name: string)
     const service = app.service('todos');
     // Call the `get` method with a name
     const todo = await service.get(name);
-
-    const logger = app.get('logger');
 
     // Log the todo we got back
     logger.info({ todo }, 'response from todos service.get');

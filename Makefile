@@ -54,7 +54,7 @@ clean-build :
 clean-doc :
 
 run :
-	node dist/main.js 2>&1 | $(BUNYAN)
+	node dist/app.js 2>&1 | $(BUNYAN)
 
 update-deps :
 # TODO: as this was copied from the Makefile of another project test this to see if

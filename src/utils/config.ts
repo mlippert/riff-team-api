@@ -31,11 +31,49 @@ import { loggerInstance } from './logger';
  */
 function configureSettings(app: FeathersApp): void
 {
-    const port = config.get<number>('server.port');
+    const server = config.get<IServerSettings>('server');
+    app.set('port', server.port);
+    app.set('host', server.host);
+    app.set('public', server.public);
+    app.set('mongodb', server.mongodb);
+    app.set('paginate', server.paginate);
 
     app.set('logger', loggerInstance);
-    app.set('port', port);
 }
+
+/* ******************************************************************************
+ * IServerSettings                                                         */ /**
+ *
+ * Configuration settings relevant to the riff-team-api server
+ *
+ * @property host
+ *      hostname (domain name) that the server is running on.
+ *
+ * @property port
+ *      [Description of port]
+ *
+ * @property public
+ *      [Description of public]
+ *
+ * @property mongodb
+ *      [Description of mongodb]
+ *
+ * @property paginate
+ *      [Description of paginate]
+ */
+interface IServerSettings
+{
+    host: string;
+    port: number;
+    public: string;
+    mongodb: string;
+    paginate:
+    {
+        default: number;
+        max: number;
+    };
+}
+
 
 /* **************************************************************************** *
  * Module exports                                                               *

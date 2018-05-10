@@ -1,5 +1,11 @@
 server:
+    host: localhost
     port: 8000
+    public: ../public
+    mongodb: mongodb://localhost:27017/RiffTeam
+    paginate:
+        default: 10
+        max: 50
 
 log:
     name: RiffTeam
