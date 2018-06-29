@@ -28,8 +28,8 @@ import { Application as FeathersApp } from '@feathersjs/feathers';
 // @ts-ignore: TS6133: 'app' is declared but its value is never read.
 // eslint-disable-next-line no-unused-vars
 function configureMiddleware(app: FeathersApp): void
-{
-};
+{ // tslint:disable-line:no-empty
+}
 
 
 /* **************************************************************************** *

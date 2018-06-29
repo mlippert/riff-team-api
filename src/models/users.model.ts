@@ -56,7 +56,6 @@ function createUserModel(app: FeathersApp): Model<IUserDocument>
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
     const mongooseClient = app.get('mongooseClient');
-    const { Schema } = mongooseClient;
 
     const userSchema = new Schema(userSchemaDef, userSchemaOpts);
 

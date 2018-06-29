@@ -48,15 +48,15 @@ function getLoggingHook(): Hook
     {
         // This debugs the service call and a stringified version of the hook context
         // You can customize the message (and logger) to your needs
-        logger.debug({ serviceCallContext: context }, `${context.type} app.service('${context.path}').${context.method}()`);
+        logger.debug({ serviceCallContext: context }, `${context.type} app.service('${context.path}').${context.method}()`); // tslint:disable:ter-max-len
 
         // TODO: This was how feathersCLI wrote the log call for winston
         // I don't think it's necessary for bunyan given the above log call,
         // but double check. - mjl 2018-05-08
-        //if (typeof context.toJSON === 'function')
-        //{
-        //    logger.debug('Hook Context', JSON.stringify(context, null, '  '));
-        //}
+        //  if (typeof context.toJSON === 'function')
+        //  {
+        //      logger.debug('Hook Context', JSON.stringify(context, null, '  '));
+        //  }
 
         if (context.error)
         {

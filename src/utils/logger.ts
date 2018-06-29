@@ -124,7 +124,7 @@ interface IConfigLog
 }
 
 // Singleton Logger instance
-let loggerInstance = createLogger();
+const loggerInstance = createLogger();
 
 
 /* **************************************************************************** *

@@ -16,23 +16,21 @@
 
 import * as path from 'path';
 
-import feathers from '@feathersjs/feathers';
 import express from '@feathersjs/express';
-//import socketio from '@feathersjs/socketio';
+import feathers from '@feathersjs/feathers';
+// import socketio from '@feathersjs/socketio';
 
-import * as favicon from 'serve-favicon';
 import * as compress from 'compression';
 import * as cors from 'cors';
 import * as helmet from 'helmet';
+import * as favicon from 'serve-favicon';
 
-import { configureSettings } from './utils/config';
+import { appHooks } from './app.hooks';
 import { configureChannels } from './channels';
+import { configureMiddleware } from './middleware';
 import { configureMongoose } from './mongoose';
 import { configureServices } from './services';
-import { configureMiddleware } from './middleware';
-import { appHooks } from './app.hooks';
-
-
+import { configureSettings } from './utils/config';
 
 
 const app = express(feathers());
@@ -55,7 +53,7 @@ app.use('/', express.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(express.rest());
-//app.configure(socketio());
+// app.configure(socketio());
 
 app.configure(configureMongoose);
 

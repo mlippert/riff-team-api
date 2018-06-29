@@ -29,7 +29,7 @@ import users from './users/users.service';
 function configureServices(app: FeathersApp): void
 {
     app.configure(users);
-};
+}
 
 
 /* **************************************************************************** *
