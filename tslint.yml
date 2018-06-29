@@ -10,6 +10,17 @@ rules:
     quotemark:
         - single
         - avoid-escape
+    max-line-length: false
+    ter-max-len:
+        severity: warning
+        options:
+        -
+            code: 120
+            ignoreStrings: false
+            ignoreTemplateLiterals: false
+            ignoreRegExpLiterals: false
+            ignoreTrailingComments: true
+            ignoreUrls: true
     no-consecutive-blank-lines:
         severity: warning
         options:
