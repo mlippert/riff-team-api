@@ -16,19 +16,25 @@ LINT = ./node_modules/.bin/tslint
 BUNYAN = ./node_modules/.bin/bunyan
 
 BUILD_LOG = logs/build.log
+LINT_LOG = logs/lint.log
+TEST_LOG = logs/test.log
+
+# eslint has a --quiet option to only report on errors, not warnings, but tslint does not.
+LINT_OPTIONS =
+LINT_FORMAT = stylish
 
 .DELETE_ON_ERROR :
 .PHONY : help up rebuild dev-server dev-rtc start-dev
 
 help :
-	@echo ""                                                                     ; \
-	echo "Useful targets in this riff-team-api Makefile:"                        ; \
-	echo "- build      : compile the sources into the dist directory"            ; \
-	echo "- lint       : lint all of the source files"                           ; \
-	echo "- clean      : remove all files created by building"                   ; \
-	echo "- run        : start the riff-team-api"                                ; \
-	echo "- dev-server : start a dev container for the rhythm-server"            ; \
-	echo "- dev-rtc    : start a dev container for the rhythm-rtc"               ; \
+	@echo ""                                                                           ; \
+	echo "Useful targets in this riff-team-api Makefile:"                              ; \
+	echo "- build      : compile the sources into the dist directory"                  ; \
+	echo "- lint       : run lint over the sources & tests; display results to stdout" ; \
+	echo "- lint-log   : run lint concise diffable output to $(LINT_LOG)"              ; \
+	echo "- clean      : remove all files created by building"                         ; \
+	echo "- run        : start the riff-team-api"                                      ; \
+	echo "- vim-lint   : run lint in format consumable by vim quickfix"                ; \
 	echo ""
 
 
@@ -39,8 +45,11 @@ all : build test doc
 build :
 	@($(TYPESCRIPT) && echo "Build succeeded") | tee $(BUILD_LOG)
 
-lint :
-	$(LINT) --project .
+lint-log: LINT_OPTIONS = --out $(LINT_LOG)
+lint-log: LINT_FORMAT = msbuild
+vim-lint: LINT_FORMAT = msbuild
+lint vim-lint lint-log:
+	$(LINT) $(LINT_OPTIONS) --format $(LINT_FORMAT) --project .
 
 doc :
 
