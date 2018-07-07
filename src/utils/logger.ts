@@ -57,6 +57,7 @@ function createLogger()
                 logDir += '/';
             }
 
+            // tslint:disable:no-magic-numbers
             const adjustedStream: bunyan.Stream =
                 {
                     level: logLevel,
@@ -65,6 +66,7 @@ function createLogger()
                     period: stream.period || '1d',          // Defaults to daily rotation
                     count: stream.count || 10,              // defaults to 10 files back-copy window
                 };
+            // tslint:enable:no-magic-numbers
 
             logStreams.push(adjustedStream);
         }
@@ -87,7 +89,7 @@ function createLogger()
     logConfig.streams.forEach(processLogStream);
 
 
-    if (logStreams.length === 0 )
+    if (logStreams.length === 0)
     {
         const errorMessage = 'Logger warning: no stream attached to the logger!';
         // tslint:disable-next-line:no-console

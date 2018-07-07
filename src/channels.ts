@@ -72,6 +72,7 @@ function configureChannels(app: FeathersApp): void
            });
 
     // @ts-ignore: TS6133: 'data' and 'hook' are declared but their value is never read.
+    // tslint:disable:ter-indent - until ObjectExpression intent option is supported by tslint-eslint-rules
     // eslint-disable-next-line no-unused-vars
     app.publish((data, hook) =>
                 {
@@ -83,6 +84,7 @@ function configureChannels(app: FeathersApp): void
                     // e.g. to publish all service events to all authenticated users use
                     return app.channel('authenticated');
                 });
+    // tslint:enable:ter-indent
 
     // Here you can also add service specific event publishers
     // e..g the publish the `users` service `created` event to the `admins` channel

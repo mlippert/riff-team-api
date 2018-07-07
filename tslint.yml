@@ -5,12 +5,67 @@ extends:
     - tslint-eslint-rules
 jsRules: {}
 rules:
-    jsdoc-format: false
-    one-line: false
-    quotemark:
-        - single
-        - avoid-escape
-    max-line-length: false
+    array-bracket-spacing:
+        severity: error
+        options:
+            - always
+            -
+                objectsInArrays: false
+    ter-arrow-parens:
+        severity: error
+        options:
+            - as-needed
+            -
+                requireForBlockBody: true
+    ter-arrow-spacing:
+        severity: error
+    block-spacing:
+        severity: error
+    brace-style:
+        severity: error
+        options:
+            - true
+            - allman
+            -
+                allowSingleLine: true
+    comment-format:
+        severity: warning
+        options:
+            - check-space
+    ter-computed-property-spacing:
+        severity: error
+    curly:
+        severity: warning
+        options:
+            - ignore-same-line
+    ter-func-call-spacing:
+        severity: error
+    ter-indent:
+        severity: error
+        options:
+            - 4
+            -
+                SwitchCase: 1
+                FunctionDeclaration:
+                    parameters: first
+                    body: 1
+                FunctionExpression:
+                    parameters: first
+                    body: 1
+                MemberExpression: off
+                CallExpression:
+                    arguments: first
+                ArrayExpression: first
+                ObjectExpression: first
+                ImportDeclaration: first
+    jsdoc-format:
+        severity: off
+    linebreak-style:
+        severity: error
+        options:
+            - LF
+    max-line-length:
+        severity: off
     ter-max-len:
         severity: warning
         options:
@@ -27,15 +82,84 @@ rules:
             - 2
     no-console:
         severity: warning
-    object-literal-sort-keys: false
+    no-extra-semi:
+        severity: error
+    no-magic-numbers:
+        severity: error
+    no-multi-spaces:
+        severity: off
+    no-shadowed-variable:
+        severity: error
+    no-switch-case-fall-through:
+        severity: error
+    no-trailing-whitespace:
+        severity: error
+    no-unused-expression:
+        severity: error
+        options:
+            - allow-fast-null-checks
+    no-unused-variable:
+        severity: warning
+    no-var-keyword:
+        severity: error
+    object-literal-key-quotes:
+        severity: error
+        options:
+            - as-needed
+    object-curly-spacing:
+        severity: error
+        options:
+            - always
+    object-literal-sort-keys:
+        severity: off
+    one-line:
+        severity: off
+    one-variable-per-declaration:
+        severity: error
+        options:
+            - ignore-for-loop
+    quotemark:
+        severity: error
+        options:
+            - single
+            - avoid-escape
+    space-in-parens:
+        severity: error
+        options:
+            - never
     trailing-comma:
         severity: default
         options:
             multiline: ignore
             singleline: never
-    brace-style:
-        - true
-        - allman
-        -
-            allowSingleLine: true
+    triple-equals:
+        severity: error
+    valid-jsdoc:
+        severity: error
+        options:
+            -
+                prefer:
+                    return: returns
+                requireReturn: false
+                requireParamDescription: true
+                requireReturnDescription: true
+    variable-name:
+        severity: warning
+        options:
+            - check-format
+            - allow-leading-underscore
+            - ban-keywords
+    whitespace:
+        severity: error
+        options:
+            - check-branch
+            - check-decl
+            - check-operator
+            - check-module
+            - check-separator
+            - check-rest-spread
+            - check-type
+            - check-typecast
+            - check-type-operator
+            - check-preblock
 rulesDirectory: []

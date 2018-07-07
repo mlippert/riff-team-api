@@ -81,10 +81,12 @@ app.use('todos',
         async get(name: string): Promise<{ name: string, text: string }>
         {
             // Return an object in the form of { name, text }
+            // tslint:disable:ter-indent - until ObjectExpression intent option is supported by tslint-eslint-rules
             return {
                        name,
                        text: `You have to do ${name}`
                    };
+            // tslint:enable:ter-indent
         }
     });
 

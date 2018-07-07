@@ -30,15 +30,15 @@ import hooks from './users.hooks';
  */
 function configureUsersService(app: FeathersApp): void
 {
-    const Model = createModel(app);
+    const Model = createModel(app); // tslint:disable-line:variable-name "class names should be PascalCase"
     const paginate = app.get('paginate');
 
     const options =
-    {
-        name: 'users',
-        Model,
-        paginate
-    };
+        {
+            name: 'users',
+            Model,
+            paginate
+        };
 
     // Initialize our service with any options it requires
     app.use('/users', createService(options));

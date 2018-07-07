@@ -17,6 +17,7 @@
 import { Application as FeathersApp } from '@feathersjs/feathers';
 import { Document, Model, Schema } from 'mongoose';
 
+// tslint:disable:ter-indent - until ObjectExpression intent option is supported by tslint-eslint-rules
 interface IUser
 {
     email: string;
@@ -26,6 +27,7 @@ interface IUser
                last?: string;
            };
 }
+// tslint:enable:ter-indent
 
 const userSchemaDef =
     {

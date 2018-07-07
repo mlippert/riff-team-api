@@ -16,40 +16,40 @@ import { HooksObject } from '@feathersjs/feathers';
 import logger from './hooks/logger';
 
 const appHooks: HooksObject =
-{
-    before:
     {
-        all:    [ logger() ],
-        find:   [],
-        get:    [],
-        create: [],
-        update: [],
-        patch:  [],
-        remove: []
-    },
+        before:
+        {
+            all:    [ logger() ],
+            find:   [],
+            get:    [],
+            create: [],
+            update: [],
+            patch:  [],
+            remove: []
+        },
 
-    after:
-    {
-        all:    [ logger() ],
-        find:   [],
-        get:    [],
-        create: [],
-        update: [],
-        patch:  [],
-        remove: []
-    },
+        after:
+        {
+            all:    [ logger() ],
+            find:   [],
+            get:    [],
+            create: [],
+            update: [],
+            patch:  [],
+            remove: []
+        },
 
-    error:
-    {
-        all:    [ logger() ],
-        find:   [],
-        get:    [],
-        create: [],
-        update: [],
-        patch:  [],
-        remove: []
-    }
-};
+        error:
+        {
+            all:    [ logger() ],
+            find:   [],
+            get:    [],
+            create: [],
+            update: [],
+            patch:  [],
+            remove: []
+        }
+    };
 
 
 /* **************************************************************************** *
