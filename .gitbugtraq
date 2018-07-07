@@ -1,5 +1,5 @@
 [bugtraq]
-	url = https://github.com/mlippert/riff-team-api/issues/%BUGID%
+	url = https://github.com/rifflearning/riff-team-api/issues/%BUGID%
 	logfilterregex = "[Ii]ssues?:?((?:\\s*(?:,|and)?\\s*#\\d+)+)"
 	loglinkregex = "(#\\d+)"
 	logregex = "(\\d+)"
