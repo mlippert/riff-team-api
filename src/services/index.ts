@@ -15,6 +15,7 @@
  * ******************************************************************************/
 
 import { Application as FeathersApp } from '@feathersjs/feathers';
+import groups from './groups/groups.service';
 import users from './users/users.service';
 
 
@@ -29,6 +30,7 @@ import users from './users/users.service';
 function configureServices(app: FeathersApp): void
 {
     app.configure(users);
+    app.configure(groups);
 }
 
 
