@@ -19,8 +19,10 @@
 ### TSLint ###
 
 - [TSLint][]
+- [tslint-eslint-rules][]
 
 [TSLint]: <https://palantir.github.io/tslint/> "TSLint"
+[tslint-eslint-rules]a: <https://www.npmjs.com/package/tslint-eslint-rules> "tslint-eslint-rules plugin"
 
 ### EditorConfig ###
 
@@ -67,6 +69,22 @@
 
 [Feathers]: <https://feathersjs.com/> "Feathers"
 
+### express (and express middleware)
+
+- [@feathersjs/express][] : provides feathers HTTP REST API support
+- [express][] : web application framework
+- [cors][] (Cross Origin Resource Sharing)
+- [helmet][] : Helmet helps you secure your Express apps by setting various HTTP headers
+- [compression][]
+- [serve-favicon][]
+
+[@feathersjs/express]: <https://github.com/feathersjs/express#readme> "Feathersjs express module"
+[express]: <https://expressjs.com/> "Express node web application framework"
+[cors]: <https://www.npmjs.com/package/cors> "CORS node package"
+[helmet]: <https://www.npmjs.com/package/helmet> "Helmet node package"
+[compression]: <https://www.npmjs.com/package/compression> "compression node package"
+[serve-favicon]: <https://www.npmjs.com/package/serve-favicon> "serve-favicon node package"
+
 ### Mongoose (data storage) ###
 
 - [An Introduction to Mongoose for MongoDB and Node.js][mongoose-intro]
@@ -76,7 +94,6 @@
 [mongoose-intro]: <https://code.tutsplus.com/articles/an-introduction-to-mongoose-for-mongodb-and-nodejs--cms-29527> "Mongoose Introduction"
 [MongoDB Docs]: <https://docs.mongodb.com/> "MongoDB Docs"
 [typing mongoose]:<http://brianflove.com/2016/10/04/typescript-declaring-mongoose-schema-model/> "Mongoose w/ Typescript"
-
 
 ### Bunyan (logging) ###
 
